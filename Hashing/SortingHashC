@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main() {
+    
+    int arr[] = {4, -2, 2, 3, -1, 4, -2};
+    int n = 7;
+
+    int min = arr[0];
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < min) min = arr[i];
+        if (arr[i] > max) max = arr[i];
+    }
+
+    
+    int range = max - min + 1;
+    int freq[range];
+    
+    // Initialize the frequency array to 0
+    for (int i = 0; i < range; i++) {
+        freq[i] = 0;
+    }
+
+    // 3. Count frequencies using 'min' as an offset
+    for (int i = 0; i < n; i++) {
+        freq[arr[i] - min]++;
+    }
+
+    // 4. Reconstruct the array in DESCENDING order
+    int index = 0;
+    // Loop backwards from the highest possible index to the lowest
+    for (int i = range - 1; i >= 0; i--) {
+        while (freq[i] > 0) {
+            arr[index] = i + min; // Re-apply the offset to get the original number
+            index++;
+            freq[i]--;
+        }
+    }
+
+    // 5. Print the sorted array
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
