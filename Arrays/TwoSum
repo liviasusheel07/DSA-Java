@@ -14,8 +14,8 @@ class Solution {
     }
 }
 
-
-//optimised using 2pointers
+ 
+//optimised using 2pointers O(n)
 #include <stdio.h>
 
 int main() {
