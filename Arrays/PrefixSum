@@ -19,3 +19,35 @@ int main() {
 
     return 0;
 }
+//to find within a range
+
+#include <stdio.h>
+
+int rangeSum(int prefix[], int l, int r) {
+
+    if (l == 0)
+        return prefix[r];
+
+    return prefix[r] - prefix[l - 1];
+}
+
+int main() {
+
+    int A[] = {2, 4, 1, 5, 3};
+    int n = 5;
+
+    int prefix[5];
+
+    prefix[0] = A[0];
+
+    for (int i = 1; i < n; i++) {
+        prefix[i] = prefix[i - 1] + A[i];
+    }
+
+    // Query: sum from index 1 to 3
+    int answer = rangeSum(prefix, 1, 3);
+
+    printf("Sum = %d\n", answer);
+
+    return 0;
+}
