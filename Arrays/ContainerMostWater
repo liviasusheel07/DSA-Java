@@ -1,0 +1,23 @@
+//brute force approach O(n^2)
+
+class Solution {
+    public int maxArea(int[] height) {
+        int area= 0;
+        int maxarea=0;
+        int n = height.length;
+        int i,j;
+        for(i=0;i<n;i++)
+        {
+            for(j=i+1;j<n;j++)
+            {
+                area=((j-i)*(Math.min(height[i],height[j])));
+               maxarea= Math.max(maxarea,area);
+
+        }
+        
+    }
+    return maxarea;
+}
+
+}
+
