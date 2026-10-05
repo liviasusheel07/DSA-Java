@@ -1,0 +1,22 @@
+// the method i tried worked for some cases but not all- had trouble considering overlapping arrays
+
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int i,n;
+        int count=0;
+        n= nums.length;
+        for(i=0;i<n;i++)
+        {
+            int sum=0;
+            for(int j=i;j<n;j++)
+            {
+                sum= sum+nums[j];
+                if(sum==k)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+}
